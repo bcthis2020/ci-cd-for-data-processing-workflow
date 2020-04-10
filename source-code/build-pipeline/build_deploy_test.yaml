@@ -24,6 +24,10 @@ steps:
   id: 'build-jar'
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
+  args: ['chmod +x set_composer_variables.sh']
+  args: ['./env-setup/set_composer_variables.sh']
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
   args: ['chmod +x create_buckets.sh']
   args: ['./env-setup/create_buckets.sh']
 - name: gcr.io/cloud-builders/gsutil
