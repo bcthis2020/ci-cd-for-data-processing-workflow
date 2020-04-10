@@ -29,9 +29,9 @@ steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
   args: ['./env-setup/set_env.sh']
-  args: ['composer environments create $COMPOSER_ENV_NAME \
-    --location $COMPOSER_REGION \
-    --zone $COMPOSER_ZONE_ID \
+  args: ['composer environments create data-pipeline-composer-new \
+    --location us-central1 \
+    --zone us-central1-a \
     --machine-type n1-standard-1 \
     --node-count 3 \
     --disk-size 20 \
