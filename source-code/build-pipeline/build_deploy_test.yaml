@@ -24,21 +24,12 @@ steps:
   id: 'build-jar'
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
+  args: ['./env-setup/set_env.sh']
   args: ['chmod +x set_composer_variables.sh']
   args: ['./env-setup/set_composer_variables.sh']
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
   args: ['./env-setup/set_env.sh']
-  args: ['composer environments create data-pipeline-composer-new \
-    --location us-central1 \
-    --zone us-central1-a \
-    --machine-type n1-standard-1 \
-    --node-count 3 \
-    --disk-size 20 \
-    --python-version 2
-']
-- name: 'gcr.io/cloud-builders/gcloud'
-  entrypoint: 'bash'
   args: ['chmod +x create_buckets.sh']
   args: ['./env-setup/create_buckets.sh']
 - name: gcr.io/cloud-builders/gsutil
