@@ -25,7 +25,7 @@ steps:
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
   args: ['chmod +x create_buckets.sh']
-  args: ['./create_buckets.sh']
+  args: ['./env-setup/create_buckets.sh']
 - name: gcr.io/cloud-builders/gsutil
   args: ['cp', '*bundled*.jar', 'gs://${_DATAFLOW_JAR_BUCKET}/dataflow_deployment_$BUILD_ID.jar']
   dir: '$REPO_NAME/data-processing-code/target'
