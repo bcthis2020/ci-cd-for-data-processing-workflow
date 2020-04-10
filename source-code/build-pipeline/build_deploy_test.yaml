@@ -28,6 +28,7 @@ steps:
   args: ['./env-setup/set_composer_variables.sh']
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
+  args: ['./env-setup/set_env.sh']
   args: ['composer environments create $COMPOSER_ENV_NAME \
     --location $COMPOSER_REGION \
     --zone $COMPOSER_ZONE_ID \
