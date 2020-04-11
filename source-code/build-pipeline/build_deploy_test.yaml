@@ -28,7 +28,7 @@ steps:
   args: ['chmod +x create_buckets.sh']
   args: ['./env-setup/create_buckets.sh']
 - name: gcr.io/cloud-builders/gsutil
-  args: ['cp', '*bundled*.jar', 'gs://${_DATAFLOW_JAR_BUCKET}/dataflow_deployment_$BUILD_ID.jar']
+  args: ['cp -p', '*bundled*.jar', 'gs://${_DATAFLOW_JAR_BUCKET}/dataflow_deployment_$BUILD_ID.jar']
   dir: '$REPO_NAME/data-processing-code/target'
   id: 'deploy-jar'
 - name: 'gcr.io/cloud-solutions-images/apache-airflow:1.10'
