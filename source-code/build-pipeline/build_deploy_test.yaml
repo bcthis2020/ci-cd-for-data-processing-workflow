@@ -20,7 +20,7 @@ steps:
   args: ['export TEST='test']
 - name: 'gcr.io/cloud-builders/gcloud'
   entrypoint: 'bash'
-  args: ['export GCP_PROJECT_ID=$(gcloud config list --format 'value(core.project)')']
+  args: ['export GCP_PROJECT_ID=$(gcloud config list --format "value(core.project)")']
 #- name: gcr.io/cloud-builders/mvn
 #  args: ['package', '-q']
 #  dir: '$REPO_NAME/data-processing-code'
