@@ -25,14 +25,14 @@ spark.sparkContext.setLogLevel('WARN')
 
 
 #Reading source and lrf
-df_source = spark.read.csv("gs://bucket_for_sample-cluster/sample.csv", inferSchema= True , header= True)
+df_source = spark.read.csv("gs://cicd-files/sample.csv", inferSchema= True , header= True)
 df_source.show()
 
 
 
 # Saving the data to BigQuery
 df_source.write.format('bigquery') \
-  .option('table', 'dataset_1.table_1') \
-  .option("temporaryGcsBucket","bucket_for_sample-cluster") \
+  .option('table', 'employees.emp_data') \
+  .option("temporaryGcsBucket","cicd-files") \
   .mode('append') \
 .save()
