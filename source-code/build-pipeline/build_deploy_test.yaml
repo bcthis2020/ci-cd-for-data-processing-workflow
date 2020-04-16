@@ -17,7 +17,7 @@ steps:
   id: 'check-out-source-code'
 - name: gcr.io/cloud-builders/mvn
   args: ['package','-Dmaven.test.skip=true']
-  dir: '$REPO_NAME/data-processing-code'
+  dir: '$REPO_NAME/source-code/data-processing-code'
   id: 'build-jar'
 - name: gcr.io/cloud-builders/gsutil
   args: ['cp', '*bundled*.jar', 'gs://${_DATAFLOW_JAR_BUCKET}/dataflow_deployment_$BUILD_ID.jar']
