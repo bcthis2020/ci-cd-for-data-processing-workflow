@@ -40,7 +40,7 @@ default_dag_args = {
 
 
 with models.DAG(
-        'seventh_run_spark',
+        'pyspark-job-dag',
         # Continue to run DAG once per day
         schedule_interval=datetime.timedelta(days=1),
         default_args=default_dag_args) as dag:
