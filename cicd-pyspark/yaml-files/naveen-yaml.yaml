@@ -22,13 +22,13 @@ steps:
 #  dir: 'cicd-pyspark'
 #  id: 'cicd-newjob-bucket'
 - name: gcr.io/cloud-builders/gsutil
-  args: ['cp', 'dag.py', '$GCP_BUCKET/dags/new-dag.py']
+  args: ['cp', 'dag.py', '$_GCP_BUCKET/dags/new-dag.py']
   dir: '$REPO_NAME/cicd-pyspark'
   id: 'cicd-copy-day-gsbucket'
 #- name: gcr.io/cloud-builders/gcloud
 #  args: ['dataproc','jobs', 'submit', 'pyspark','gs://cicd-files/pyspark-job-new.py', '--cluster','cicd-demo-cluster',  '--jars','gs://spark-lib/bigquery/spark-bigquery-latest.jar','--region','us-central1']
 - name: gcr.io/cloud-builders/gcloud
-  args: ['composer', 'environments', 'run', '$COMPOSER_ENV_NAME', '--location', '$COMPOSER_LOCATION', 'trigger_dag', '--', '$DAG_NAME']
+  args: ['composer', 'environments', 'run', '$_COMPOSER_ENV_NAME', '--location', '$_COMPOSER_LOCATION', 'trigger_dag', '--', '$_DAG_NAME']
   id: 'trigger-pipeline-execution'
 ##- name: 'gcr.io/cloud-solutions-images/apache-airflow:1.10'
 #  entrypoint: 'python'
