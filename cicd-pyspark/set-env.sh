@@ -17,4 +17,7 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-export TEST='test'
+export GCP_BUCKET='gs://us-central1-data-pipeline-c-6f117ebe-bucket/dags/new-dag.py'
+export COMPOSER_ENV_NAME='data-pipeline-composer'
+export COMPOSER_LOCATION='us-central1'
+export DAG_NAME='pyspark-job-dag'
