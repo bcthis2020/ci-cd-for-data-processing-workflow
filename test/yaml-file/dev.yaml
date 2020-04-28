@@ -19,7 +19,7 @@ steps:
   args: ['mb','gs://dev-bucket-$BUILD_ID/']
   id: 'create-dev-bucket'
 - name: gcr.io/cloud-builders/gsutil
-  args: ['label','ch','-l','env:dev','gs://dev-bucket-$PROJECT_ID-$BUILD_ID']
+  args: ['label','ch','-l','env:dev','gs://dev-bucket-$BUILD_ID']
   id: 'assign-label-dev-bucket'
 #- name: gcr.io/cloud-builders/gsutil
 #  args: ['cp', 'pyspark-job.py', 'gs://cicd-files/pyspark-job-new.py']
