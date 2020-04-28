@@ -16,7 +16,7 @@ steps:
   args: ['clone', 'https://github.com/bcthis2020/ci-cd-for-data-processing-workflow.git']
   id: 'check-out-source-code'
 - name: gcr.io/cloud-builders/gsutil
-  args: ['mb','-p','$PROJECT_ID','gs://dev-bucket-$PROJECT_ID-$BUILD_ID']
+  args: ['mb','-c','standard','-l','us-east1','-p','$PROJECT_ID','gs://dev-bucket-$PROJECT_ID-$BUILD_ID']
   id: 'create-dev-bucket'
 - name: gcr.io/cloud-builders/gsutil
   args: ['label','ch','-l','env:dev','gs://dev-bucket-$PROJECT_ID-$BUILD_ID']
